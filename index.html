@@ -11,7 +11,7 @@
   </head>
   <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark shadow p-3 bg-dark position-fixed" style="width: 100%">
+    <nav class="navbar navbar-expand-lg navbar-dark shadow p-3 bg-dark fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#">Alviano</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,18 +38,27 @@
     <!-- navbar end -->
 
     <!-- jumbotron -->
-    <div class="jumbotron jumbotron-fluid">
+    <section class="jumbotron jumbotron-fluid">
       <div class="container text-light text-start">
         <div class="row">
           <div class="col-md-8 text-center">
             <h1 class="display-4 fw-bold" style="font-size: 75px">M.Detryalviano</h1>
-            <p class="lead" style="font-size: 15px; box-sizing: border-box; padding: 5px 65px 0px 65px;">Beginner Web Developer, Puh Sepuh Ajari Aku Dong Puh 
-              Sepuh tingki wingki dipsi lala puh sepuh Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit amet consectetur 
-              adipisicing elit. Blanditiis!</p>
+            <p class="lead" style="font-size: 15px; box-sizing: border-box; padding: 5px 65px 0px 65px">
+              Beginner Web Developer, Puh Sepuh Ajari Aku Dong Puh Sepuh tingki wingki dipsi lala puh sepuh Lorem ipsum dolor sit amet consectetur adipisicing. Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis! Lorem ipsum
+              dolor sit amet consectetur adipisicing elit. Aperiam vel iste deserunt magni libero nisi quasi nihil ipsam?
+            </p>
+            <div class="medsos">
+              <img src="medsos/tiktok1.png" class="tt" />
+              <img src="medsos/instagram.png" class="ig" />
+              <img src="medsos/youtube.png" class="yt" />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <img src="profile.jpg" alt="profil" width="300" class="rounded-circle img-thumbnail" />
           </div>
         </div>
       </div>
-    </div>
+    </section>
     <!-- jumbotron end -->
 
     <!-- about -->
@@ -146,20 +155,29 @@
         </div>
         <div class="row">
           <div class="col-5" style="margin-left: 130px">
-            <form>
+            <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
+              <strong>Terima Kasih!</strong> Pesan Anda Sudah Kami Terima.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <form name="contact-form-alvin">
               <div class="mb-3">
                 <label for="name" class="form-label fs-5">Full Name</label>
-                <input type="text" class="form-control" id="name" aria-describedby="name" />
+                <input type="text" class="form-control" id="name" aria-describedby="name" name="nama" />
               </div>
               <div class="mb-3">
                 <label for="email" class="form-label fs-5">Email</label>
-                <input type="email" class="form-control" id="email" aria-describedby="email" />
+                <input type="email" class="form-control" id="email" aria-describedby="email" name="email" />
               </div>
               <div class="mb-3">
                 <label for="pesan" class="form-label fs-5">Massage</label>
-                <textarea class="form-control" id="pesan" rows="5"></textarea>
+                <textarea class="form-control" id="pesan" rows="5" name="pesan"></textarea>
               </div>
-              <button type="submit" class="btn btn-dark fs-5" style="padding: 10px 30px">Submit</button>
+              <button type="submit" class="btn btn-dark fs-5 btn-kirim" style="padding: 10px 30px">Submit</button>
+
+              <button class="btn btn-dark btn-loading d-none" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                <span role="status">Loading...</span>
+              </button>
             </form>
           </div>
           <div class="col">
@@ -171,12 +189,12 @@
     <!-- feedback end -->
 
     <!-- description -->
-    <section id="description">
+    <div id="description">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path fill="#1A1E21" fill-opacity="1" d="M0,160L120,149.3C240,139,480,117,720,117.3C960,117,1200,139,1320,149.3L1440,160L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
       </svg>
       <div class="container">
-        <div class="row cf text-start text-light" style="font-size: 16px; padding: 1%; border-bottom: 2px solid #fff">
+        <!-- <div class="row cf text-start text-light" style="font-size: 16px; padding: 1%; border-bottom: 2px solid #fff">
           <div class="col-md-4 satu">
             <h2 class="mb-5 fw-bold fs-4">Description</h2>
             <p class="text-light">
@@ -204,16 +222,44 @@
               Kota Semarang, Jateng<br />
             </p>
           </div>
-        </div>
+        </div> -->
         <div class="row" style="padding-top: 1%">
           <div class="col-12 text-center text-light fw-semibold">
             <p>Copyright 2023.Alviano</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
     <!-- description end -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <script>
+      const scriptURL = "https://script.google.com/macros/s/AKfycbzLfMM73uR_8fwr_STHzbSNgLTWVLtJ4uTM_jgI-0rqEIOQ3fi_obQpuKu9K511j7sg/exec";
+      const form = document.forms["contact-form-alvin"];
+      const btnKirim = document.querySelector(".btn-kirim");
+      const btnLoading = document.querySelector(".btn-loading");
+      const myAlert = document.querySelector(".my-alert");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        // ketika tombol submit di klik
+        // tampilkan tombol loading hilangkan tombol kirim
+        btnLoading.classList.toggle("d-none");
+        btnKirim.classList.toggle("d-none");
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => {
+            // tampilkan tombol kirirm hilangkan tombol loading
+            btnLoading.classList.toggle("d-none");
+            btnKirim.classList.toggle("d-none");
+            // tampilkan alert
+            myAlert.classList.toggle("d-none");
+            // clear formnya
+            form.reset();
+            console.log("Success!", response);
+          })
+          .catch((error) => console.error("Error!", error.message));
+      });
+    </script>
   </body>
 </html>
